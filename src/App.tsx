@@ -11,6 +11,10 @@ const App: FunctionComponent<{}> = () => {
     contact2: 'atelierdunumerique.io'
   })
 
+  const updateField = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setState({...state, [field]: e.target.value})
+  }
+
   return (
     <div className="App bg-gray-100 h-screen pt-20">
       <div className="relative mx-auto bg-cover rounded-md shadow-lg" style={{'width':'638px', 'height':'420px', 'backgroundImage': `url(${template})` }}>
@@ -23,13 +27,13 @@ const App: FunctionComponent<{}> = () => {
       <div className="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-5/12">
         <form className="mt-6">
           <label className="block mt-2 text-xs font-semibold text-gray-600 uppercase"> Nom </label>
-          <input className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+          <input onChange={updateField('name')} value={state.name} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
           <label className="block mt-2 text-xs font-semibold text-gray-600 uppercase">Titre</label>
-          <input className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+          <input onChange={updateField('title')} value={state.title} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
           <label className="block mt-2 text-xs font-semibold text-gray-600 uppercase">Contact 1</label>
-          <input className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+          <input onChange={updateField('contact1')} value={state.contact1} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
           <label className="block mt-2 text-xs font-semibold text-gray-600 uppercase">Contact 2</label>
-          <input className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+          <input onChange={updateField('contact2')} value={state.contact2} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
         </form>
       </div>
     </div>
