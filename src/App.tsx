@@ -1,7 +1,6 @@
 import React, {FunctionComponent, useState} from "react";
 import './App.css';
 import template from './template.png'
-var domtoimage: any = require('dom-to-image');
 
 const App: FunctionComponent<{}> = () => {
 
